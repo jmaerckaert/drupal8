@@ -1,4 +1,4 @@
-diff --git a/core/lib/Drupal/Core/Ajax/AjaxResponseAttachmentsProcessor.php b/core/lib/Drupal/Core/Ajax/AjaxResponseAttachmentsProcessor.php
+diff --git a/web/core/lib/Drupal/Core/Ajax/AjaxResponseAttachmentsProcessor.php b/core/lib/Drupal/Core/Ajax/AjaxResponseAttachmentsProcessor.php
 index ee5208b..3a0326f 100644
 --- a/core/lib/Drupal/Core/Ajax/AjaxResponseAttachmentsProcessor.php
 +++ b/core/lib/Drupal/Core/Ajax/AjaxResponseAttachmentsProcessor.php
@@ -11,10 +11,10 @@ index ee5208b..3a0326f 100644
  
      // Aggregate CSS/JS if necessary, but only during normal site operation.
      $optimize_css = !defined('MAINTENANCE_MODE') && $this->config->get('css.preprocess');
-diff --git a/core/lib/Drupal/Core/Render/MainContent/HtmlRenderer.php b/core/lib/Drupal/Core/Render/MainContent/HtmlRenderer.php
+diff --git a/web/core/lib/Drupal/Core/Render/MainContent/HtmlRenderer.php b/core/lib/Drupal/Core/Render/MainContent/HtmlRenderer.php
 index 5966668..c5e810a 100644
---- a/core/lib/Drupal/Core/Render/MainContent/HtmlRenderer.php
-+++ b/core/lib/Drupal/Core/Render/MainContent/HtmlRenderer.php
+--- a/web/core/lib/Drupal/Core/Render/MainContent/HtmlRenderer.php
++++ b/web/core/lib/Drupal/Core/Render/MainContent/HtmlRenderer.php
 @@ -186,7 +186,7 @@ public function renderResponse(array $main_content, Request $request, RouteMatch
     * @throws \LogicException
     *   If the selected display variant does not implement PageVariantInterface.
@@ -24,10 +24,10 @@ index 5966668..c5e810a 100644
      // Determine the title: use the title provided by the main content if any,
      // otherwise get it from the routing information.
      $get_title = function (array $main_content) use ($request, $route_match) {
-diff --git a/core/modules/block/src/BlockRepository.php b/core/modules/block/src/BlockRepository.php
+diff --git a/web/core/modules/block/src/BlockRepository.php b/core/modules/block/src/BlockRepository.php
 index 4cdd710..83258ed 100644
---- a/core/modules/block/src/BlockRepository.php
-+++ b/core/modules/block/src/BlockRepository.php
+--- a/web/core/modules/block/src/BlockRepository.php
++++ b/web/core/modules/block/src/BlockRepository.php
 @@ -55,6 +55,12 @@ public function getVisibleBlocksPerRegion(array &$cacheable_metadata = []) {
        /** @var \Drupal\block\BlockInterface $block */
        $access = $block->access('view', NULL, TRUE);
@@ -41,10 +41,10 @@ index 4cdd710..83258ed 100644
        if (!isset($cacheable_metadata[$region])) {
          $cacheable_metadata[$region] = CacheableMetadata::createFromObject($access);
        }
-diff --git a/core/modules/block/src/Plugin/DisplayVariant/BlockPageVariant.php b/core/modules/block/src/Plugin/DisplayVariant/BlockPageVariant.php
+diff --git a/web/core/modules/block/src/Plugin/DisplayVariant/BlockPageVariant.php b/core/modules/block/src/Plugin/DisplayVariant/BlockPageVariant.php
 index 2dad5e6..35e48e5 100644
---- a/core/modules/block/src/Plugin/DisplayVariant/BlockPageVariant.php
-+++ b/core/modules/block/src/Plugin/DisplayVariant/BlockPageVariant.php
+--- a/web/core/modules/block/src/Plugin/DisplayVariant/BlockPageVariant.php
++++ b/web/core/modules/block/src/Plugin/DisplayVariant/BlockPageVariant.php
 @@ -135,6 +135,8 @@ public function build() {
      // Load all region content assigned via blocks.
      $cacheable_metadata_list = [];
